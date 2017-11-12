@@ -173,7 +173,7 @@ class Ui_win_Title(object):
         QtCore.QMetaObject.connectSlotsByName(win_Title)
 
     def retranslateUi(self, win_Title):
-        win_Title.setWindowTitle(_translate("win_Title", "Tika Image Similarity Qt4", None))
+        win_Title.setWindowTitle(_translate("win_Title", "Tika Similarity Qt4", None))
         self.input_Button.setText(_translate("win_Title", "Input", None))
         self.output_Button.setText(_translate("win_Title", "Output", None))
         self.comp_label.setText(_translate("win_Title", "1. Comparison", None))
