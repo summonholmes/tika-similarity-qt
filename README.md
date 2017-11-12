@@ -24,7 +24,13 @@ qt4
 Installation (Just an example!)
 ===
 1. Clone [Tika-Similarity](https://github.com/chrismattmann/tika-similarity) to your home folder.
-2. Clone this repository [Tika-Similarity-Qt4](https://github.com/summonholmes/tika-similarity-qt4) to your home foler.
+```
+$ git clone https://github.com/chrismattmann/tika-similarity
+```
+2. Clone this repository [Tika-Similarity-Qt4](https://github.com/summonholmes/tika-similarity-qt4) to your home folder.
+```
+$ git clone https://github.com/summonholmes/tika-similarity-qt4
+```
 3. Run:
 
 ```
