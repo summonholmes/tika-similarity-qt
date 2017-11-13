@@ -379,7 +379,7 @@ class Ui_win_Title(object):
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
                 system("python2 cosine_similarity.py --inputDir %s, "
-                       "--outCSV %s/cosine_distance.csv" %
+                       "--outCSV %s/cosine_similarity.csv" %
                        (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/cosine_similarity.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
@@ -395,7 +395,7 @@ class Ui_win_Title(object):
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
                 system("python2 edit-value-similarity.py --inputDir %s, "
-                       "--outCSV %s/edit-value-distance.csv" %
+                       "--outCSV %s/edit-value-similarity.csv" %
                        (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/edit-value-similarity.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
@@ -446,7 +446,8 @@ class Ui_win_Title(object):
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
 
     def cosine_sim(self):
-        self.pop_msg_win('Update File', 'Browse to either edit-value-distance.csv or cosine_distance.csv')
+        self.pop_msg_win('Update File', 'Browse to either edit-value-similarity.csv or '
+                                        'cosine_similarity.csv')
         self.input_file()
         if 'edit-value-similarity.csv' in self.input_lineEdit.text():
             if self.csv_check() is False:
@@ -457,8 +458,8 @@ class Ui_win_Title(object):
         elif self.input_lineEdit.text() == '':
             return False
         else:
-            self.pop_msg_win('Error', 'You did not browse for edit-value-distance.csv '
-                                      'or cosine_distance.csv')
+            self.pop_msg_win('Error', 'You did not browse for edit-value-similarity.csv '
+                                      'or cosine_similarity.csv')
             return False
 
     def cosine_sim_run(self):
