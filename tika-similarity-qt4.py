@@ -294,24 +294,11 @@ class Ui_win_Title(object):
             self.pop_msg_win('Error', 'Not a valid option.')
             return False
 
-    def set_meta_1(self):
+    def set_meta(self, string_order):
         tmp_dialog = QtGui.QMessageBox()
         met_msg = QtGui.QInputDialog.getText(tmp_dialog,
                                                  'Metalevenshtein',
-                                                 'Please enter the first string')
-        if met_msg[1] is False:
-            return False
-        elif met_msg[0] == '' or str(met_msg[0]).isspace() is True:
-            self.pop_msg_win('Error', 'You must provide input.')
-            return False
-        else:
-            return met_msg[0]
-
-    def set_meta_2(self):
-        tmp_dialog = QtGui.QMessageBox()
-        met_msg = QtGui.QInputDialog.getText(tmp_dialog,
-                                                 'Metalevenshtein',
-                                                 'Please enter the second string')
+                                                 'Please enter the %s string' % string_order)
         if met_msg[1] is False:
             return False
         elif met_msg[0] == '' or str(met_msg[0]).isspace() is True:
@@ -338,29 +325,13 @@ class Ui_win_Title(object):
                 bell_int_list.append(int(bell_list[x]))
             return bell_int_list
 
-    def set_bell_1(self):
+    def set_bell(self, string_order):
         tmp_dialog = QtGui.QMessageBox()
         bell_in = QtGui.QInputDialog.getText(tmp_dialog,
                                                  'Bell Curve Overlap',
-                                                 'Please enter the first set '
+                                                 'Please enter the %s set '
                                                  '(Integers only using spaces)'
-                                                 '  ex: 1 2 3 4 5 6')
-        bell_list = self.bell_conv(bell_in[0])
-        if bell_in[1] is False:
-            return False
-        elif bell_in[0] == '' or str(bell_in[0]).isspace() is True:
-            self.pop_msg_win('Error', 'You must provide input.')
-            return False
-        else:
-            return bell_list
-
-    def set_bell_2(self):
-        tmp_dialog = QtGui.QMessageBox()
-        bell_in = QtGui.QInputDialog.getText(tmp_dialog,
-                                                 'Bell Curve Overlap',
-                                                 'Please enter the second set '
-                                                 '(Integers only using spaces)'
-                                                 '  ex: 1 2 3 4 5 6')
+                                                 '  ex: 1 2 3 4 5 6' % string_order)
         bell_list = self.bell_conv(bell_in[0])
         if bell_in[1] is False:
             return False
@@ -496,11 +467,11 @@ class Ui_win_Title(object):
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
 
     def metalev(self):
-        string_1 = self.set_meta_1()
+        string_1 = self.set_meta('first')
         if string_1 is False:
             return None
         else:
-            string_2 = self.set_meta_2()
+            string_2 = self.set_meta('second')
             if string_2 is False:
                 return None
             else:
@@ -509,11 +480,11 @@ class Ui_win_Title(object):
                 self.pop_msg_win('Complete', 'Result: %s' % results)
 
     def bell_curve(self):
-        list_1 = self.set_bell_1()
+        list_1 = self.set_bell('first')
         if list_1 is False:
             return None
         else:
-            list_2 = self.set_bell_2()
+            list_2 = self.set_bell('second')
             if list_2 is False:
                 return None
             else:
