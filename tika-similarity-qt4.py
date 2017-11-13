@@ -109,9 +109,9 @@ class Ui_win_Title(object):
         self.total_Layout.addLayout(self.in_out_Layout)
         self.comp_Layout = QtGui.QVBoxLayout()
         self.comp_Layout.setObjectName(_fromUtf8("comp_Layout"))
-        self.comp_label = QtGui.QLabel(win_Title)
-        self.comp_label.setObjectName(_fromUtf8("comp_label"))
-        self.comp_Layout.addWidget(self.comp_label)
+        self.sim_comp_label = QtGui.QLabel(win_Title)
+        self.sim_comp_label.setObjectName(_fromUtf8("sim_comp_label"))
+        self.comp_Layout.addWidget(self.sim_comp_label)
         self.comp_key_val_Layout = QtGui.QHBoxLayout()
         self.comp_key_val_Layout.setObjectName(_fromUtf8("comp_key_val_Layout"))
         self.comp_key_Button = QtGui.QPushButton(win_Title)
@@ -126,6 +126,9 @@ class Ui_win_Title(object):
         self.comp_cos_Button = QtGui.QPushButton(win_Title)
         self.comp_cos_Button.setObjectName(_fromUtf8("comp_cos_Button"))
         self.comp_cos_ed_Layout.addWidget(self.comp_cos_Button)
+        self.sim_sty_Button = QtGui.QPushButton(win_Title)
+        self.sim_sty_Button.setObjectName(_fromUtf8("sim_sty_Button"))
+        self.comp_cos_ed_Layout.addWidget(self.sim_sty_Button)
         self.comp_edit_Button = QtGui.QPushButton(win_Title)
         self.comp_edit_Button.setObjectName(_fromUtf8("comp_edit_Button"))
         self.comp_cos_ed_Layout.addWidget(self.comp_edit_Button)
@@ -133,20 +136,17 @@ class Ui_win_Title(object):
         self.total_Layout.addLayout(self.comp_Layout)
         self.sim_Layout = QtGui.QVBoxLayout()
         self.sim_Layout.setObjectName(_fromUtf8("sim_Layout"))
-        self.sim_label = QtGui.QLabel(win_Title)
-        self.sim_label.setObjectName(_fromUtf8("sim_label"))
-        self.sim_Layout.addWidget(self.sim_label)
+        self.sim_vis_label = QtGui.QLabel(win_Title)
+        self.sim_vis_label.setObjectName(_fromUtf8("sim_vis_label"))
+        self.sim_Layout.addWidget(self.sim_vis_label)
         self.sim_button_Layout = QtGui.QHBoxLayout()
         self.sim_button_Layout.setObjectName(_fromUtf8("sim_button_Layout"))
-        self.sim_jac_Button = QtGui.QPushButton(win_Title)
-        self.sim_jac_Button.setObjectName(_fromUtf8("sim_jac_Button"))
-        self.sim_button_Layout.addWidget(self.sim_jac_Button)
-        self.sim_sty_Button = QtGui.QPushButton(win_Title)
-        self.sim_sty_Button.setObjectName(_fromUtf8("sim_sty_Button"))
-        self.sim_button_Layout.addWidget(self.sim_sty_Button)
         self.sim_cos_Button = QtGui.QPushButton(win_Title)
         self.sim_cos_Button.setObjectName(_fromUtf8("sim_cos_Button"))
         self.sim_button_Layout.addWidget(self.sim_cos_Button)
+        self.sim_jac_Button = QtGui.QPushButton(win_Title)
+        self.sim_jac_Button.setObjectName(_fromUtf8("sim_jac_Button"))
+        self.sim_button_Layout.addWidget(self.sim_jac_Button)
         self.sim_Layout.addLayout(self.sim_button_Layout)
         self.total_Layout.addLayout(self.sim_Layout)
         self.oth_Layout = QtGui.QVBoxLayout()
@@ -168,7 +168,6 @@ class Ui_win_Title(object):
         self.exit_Button.setObjectName(_fromUtf8("exit_Button"))
         self.total_Layout.addWidget(self.exit_Button)
         self.verticalLayout_4.addLayout(self.total_Layout)
-        self.exit_Button.raise_()
 
         self.retranslateUi(win_Title)
         QtCore.QMetaObject.connectSlotsByName(win_Title)
@@ -177,19 +176,20 @@ class Ui_win_Title(object):
         win_Title.setWindowTitle(_translate("win_Title", "Tika Similarity Qt4", None))
         self.input_Button.setText(_translate("win_Title", "Input", None))
         self.output_Button.setText(_translate("win_Title", "Output", None))
-        self.comp_label.setText(_translate("win_Title", "1. Comparison", None))
+        self.sim_comp_label.setText(_translate("win_Title", "1. Similarity & Comparison", None))
         self.comp_key_Button.setText(_translate("win_Title", "Key", None))
         self.comp_val_Button.setText(_translate("win_Title", "Value", None))
         self.comp_cos_Button.setText(_translate("win_Title", "Cosine-Distance", None))
-        self.comp_edit_Button.setText(_translate("win_Title", "Edit-Distance", None))
-        self.sim_label.setText(_translate("win_Title", "2. Similarity", None))
-        self.sim_jac_Button.setText(_translate("win_Title", "Jaccard", None))
         self.sim_sty_Button.setText(_translate("win_Title", "Stylistic", None))
-        self.sim_cos_Button.setText(_translate("win_Title", "Edit/Cosine", None))
+        self.comp_edit_Button.setText(_translate("win_Title", "Edit-Distance", None))
+        self.sim_vis_label.setText(_translate("win_Title", "2. Visualization", None))
+        self.sim_cos_Button.setText(_translate("win_Title", "Cosine", None))
+        self.sim_jac_Button.setText(_translate("win_Title", "Jaccard", None))
         self.oth_Label.setText(_translate("win_Title", "3. Other", None))
         self.oth_bell_Button.setText(_translate("win_Title", "Bell Curve", None))
         self.oth_meta_Button.setText(_translate("win_Title", "Metalevenshtein", None))
         self.exit_Button.setText(_translate("win_Title", "Exit", None))
+
 
 # 2. Code providing basic GUI functionality (mostly boolean based):
 
@@ -381,7 +381,7 @@ class Ui_win_Title(object):
                 system("python2 cosine_similarity.py --inputDir %s, "
                        "--outCSV %s/cosine_distance.csv" %
                        (self.input_lineEdit.text(), self.output_lineEdit.text()))
-                results = '%s/cosine_distance.csv' % self.output_lineEdit.text()
+                results = '%s/cosine_similarity.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
             else:
                 return None
@@ -397,7 +397,7 @@ class Ui_win_Title(object):
                 system("python2 edit-value-similarity.py --inputDir %s, "
                        "--outCSV %s/edit-value-distance.csv" %
                        (self.input_lineEdit.text(), self.output_lineEdit.text()))
-                results = '%s/edit-value-distance.csv' % self.output_lineEdit.text()
+                results = '%s/edit-value-similarity.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
             else:
                 return None
@@ -448,10 +448,10 @@ class Ui_win_Title(object):
     def cosine_sim(self):
         self.pop_msg_win('Update File', 'Browse to either edit-value-distance.csv or cosine_distance.csv')
         self.input_file()
-        if 'edit-value-distance.csv' in self.input_lineEdit.text():
+        if 'edit-value-similarity.csv' in self.input_lineEdit.text():
             if self.csv_check() is False:
                 return False
-        elif 'cosine_distance.csv' in self.input_lineEdit.text():
+        elif 'cosine_similarity.csv' in self.input_lineEdit.text():
             if self.csv_check() is False:
                 return False
         elif self.input_lineEdit.text() == '':
