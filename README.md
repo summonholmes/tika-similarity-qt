@@ -1,7 +1,7 @@
 # Tika-Similarity-Qt4
 A simple front-end for [Tika-Similarity](https://github.com/chrismattmann/tika-similarity) in PyQt4.
 
-
+![alt text](https://raw.githubusercontent.com/summonholmes/tika-similarity-qt4/master/Example_1.png)
 
 Pre-requisites
 ===
