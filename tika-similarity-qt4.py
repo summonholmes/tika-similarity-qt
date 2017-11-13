@@ -455,7 +455,7 @@ class Ui_win_Title(object):
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
         else:
             self.pop_msg_win('Error', 'Please run Key Comparison first')
-            return
+            return None
 
     def csv_check(self):
         rdr = reader(open(str(self.input_lineEdit.text())))
