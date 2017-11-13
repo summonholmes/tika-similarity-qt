@@ -3,6 +3,7 @@ from PyQt4 import QtCore, QtGui
 from os import path, system
 from sys import argv, exit
 from urllib2 import urlopen, URLError
+from csv import reader
 import metalevenshtein
 import features
 
@@ -337,7 +338,6 @@ class Ui_win_Title(object):
                 bell_int_list.append(int(bell_list[x]))
             return bell_int_list
 
-
     def set_bell_1(self):
         tmp_dialog = QtGui.QMessageBox()
         bell_in = QtGui.QInputDialog.getText(tmp_dialog,
@@ -457,13 +457,24 @@ class Ui_win_Title(object):
             self.pop_msg_win('Error', 'Please run Key Comparison first')
             return
 
+    def csv_check(self):
+        rdr = reader(open(str(self.input_lineEdit.text())))
+        line_1 = rdr.next()
+        if line_1 == ['x-coordinate', 'y-coordinate', 'Similarity_score']:
+            self.cosine_sim_run()
+        else:
+            self.pop_msg_win('Error', 'The file is corrupted or invalid')
+            return False
+          
     def cosine_sim(self):
         self.pop_msg_win('Update File', 'Browse to either edit-value-distance.csv or cosine_distance.csv')
         self.input_file()
         if 'edit-value-distance.csv' in self.input_lineEdit.text():
-            self.cosine_sim_run()
+            if self.csv_check() is False:
+                return False
         elif 'cosine_distance.csv' in self.input_lineEdit.text():
-            self.cosine_sim_run()
+            if self.csv_check() is False:
+                return False
         elif self.input_lineEdit.text() == '':
             return False
         else:
