@@ -307,24 +307,6 @@ class Ui_win_Title(object):
         else:
             return met_msg[0]
 
-    def bell_conv_check(self, bell_list):
-        for x in range(len(bell_list)):
-            if bell_list[x].isdigit() is False:
-                self.pop_msg_win('Error', 'You did not provide an integer')
-                return False
-
-    def bell_conv(self, bell_in):
-        bell_msg = str(bell_in)
-        bell_list = bell_msg.split()
-        print()
-        if self.bell_conv_check(bell_list) is False:
-            return False
-        else:
-            bell_int_list = []
-            for x in range(len(bell_list)):
-                bell_int_list.append(int(bell_list[x]))
-            return bell_int_list
-
     def set_bell(self, string_order):
         tmp_dialog = QtGui.QMessageBox()
         bell_in = QtGui.QInputDialog.getText(tmp_dialog,
@@ -341,6 +323,32 @@ class Ui_win_Title(object):
         else:
             return bell_list
 
+    def bell_conv(self, bell_in):
+        bell_msg = str(bell_in)
+        bell_list = bell_msg.split()
+        print()
+        if self.bell_conv_check(bell_list) is False:
+            return False
+        else:
+            bell_int_list = []
+            for x in range(len(bell_list)):
+                bell_int_list.append(int(bell_list[x]))
+            return bell_int_list
+
+    def bell_conv_check(self, bell_list):
+        for x in range(len(bell_list)):
+            if bell_list[x].isdigit() is False:
+                self.pop_msg_win('Error', 'You did not provide an integer')
+                return False
+
+    def csv_check(self):
+        rdr = reader(open(str(self.input_lineEdit.text())))
+        line_1 = rdr.next()
+        if line_1 == ['x-coordinate', 'y-coordinate', 'Similarity_score']:
+            self.cosine_sim_run()
+        else:
+            self.pop_msg_win('Error', 'The file is corrupted')
+            return False
 
 # 3. The buttons are linked to the existing Python files here:
 
@@ -415,28 +423,28 @@ class Ui_win_Title(object):
 
     def jaccard_sim(self):
         if path.isfile('similarity-scores.txt') is True:
-            thres_val = self.set_threshold()
-            if thres_val is False:
-                return None
-            else:
-                self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-                system("python2 cluster-scores.py -t %s" % thres_val)
-                system("python2 circle-packing.py")
-                results = 'cluster-d3.html dynamic-cluster.html, and circlepacking.html'
-                self.pop_msg_win('Complete', 'Results saved to %s' % results)
+            with open('similarity-scores.txt', 'r') as f:
+                line_1 = f.readline().strip()
+                if line_1 == 'Resemblance :':
+                    self.jaccard_sim_run()
+                else:
+                    self.pop_msg_win('Error', 'The file is corrupted')
+                    return None
         else:
             self.pop_msg_win('Error', 'Please run Key Comparison first')
             return None
 
-    def csv_check(self):
-        rdr = reader(open(str(self.input_lineEdit.text())))
-        line_1 = rdr.next()
-        if line_1 == ['x-coordinate', 'y-coordinate', 'Similarity_score']:
-            self.cosine_sim_run()
+    def jaccard_sim_run(self):
+        thres_val = self.set_threshold()
+        if thres_val is False:
+            return None
         else:
-            self.pop_msg_win('Error', 'The file is corrupted or invalid')
-            return False
-          
+            self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
+            system("python2 cluster-scores.py -t %s" % thres_val)
+            system("python2 circle-packing.py")
+            results = 'cluster-d3.html dynamic-cluster.html, and circlepacking.html'
+            self.pop_msg_win('Complete', 'Results saved to %s' % results)
+
     def cosine_sim(self):
         self.pop_msg_win('Update File', 'Browse to either edit-value-distance.csv or cosine_distance.csv')
         self.input_file()
@@ -504,6 +512,7 @@ if __name__ == "__main__":
 
 # 5. Now the proper events are activated via clicking the respective buttons:
     ui.check_connect()
+    # ui.input_Button.clicked.connect(ui.input_folder)
     ui.input_Button.clicked.connect(ui.input_folder)
     ui.output_Button.clicked.connect(ui.output_folder)
     ui.comp_key_Button.clicked.connect(ui.key_comp)
@@ -521,4 +530,3 @@ if __name__ == "__main__":
 
     win_Title.show()
     exit(app.exec_())
-
