@@ -183,7 +183,7 @@ class Ui_win_Title(object):
         self.sim_sty_Button.setText(_translate("win_Title", "Stylistic", None))
         self.comp_edit_Button.setText(_translate("win_Title", "Edit-Distance", None))
         self.sim_vis_label.setText(_translate("win_Title", "2. Visualization", None))
-        self.sim_cos_Button.setText(_translate("win_Title", "Cosine", None))
+        self.sim_cos_Button.setText(_translate("win_Title", "Edit/Cosine", None))
         self.sim_jac_Button.setText(_translate("win_Title", "Jaccard", None))
         self.oth_Label.setText(_translate("win_Title", "3. Other", None))
         self.oth_bell_Button.setText(_translate("win_Title", "Bell Curve", None))
