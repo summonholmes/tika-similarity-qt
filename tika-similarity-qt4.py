@@ -293,7 +293,7 @@ class Ui_win_Title(object):
         else:
             self.pop_msg_win('Error', 'Not a valid option.')
             return False
-
+          
     def set_meta(self, string_order):
         tmp_dialog = QtGui.QMessageBox()
         met_msg = QtGui.QInputDialog.getText(tmp_dialog,
@@ -304,8 +304,11 @@ class Ui_win_Title(object):
         elif met_msg[0] == '' or str(met_msg[0]).isspace() is True:
             self.pop_msg_win('Error', 'You must provide input.')
             return False
-        else:
+        elif isinstance(str(met_msg[0]), str):
             return met_msg[0]
+        else:
+            self.pop_msg_win('Error', 'An unknown error occurred.')
+            return False
 
     def set_bell(self, string_order):
         tmp_dialog = QtGui.QMessageBox()
@@ -320,8 +323,12 @@ class Ui_win_Title(object):
         elif bell_in[0] == '' or str(bell_in[0]).isspace() is True:
             self.pop_msg_win('Error', 'You must provide input.')
             return False
-        else:
+        elif isinstance(str(bell_in[0]), str):
             return bell_list
+        else:
+            self.pop_msg_win('Error', 'An unknown error occurred.')
+            return False
+
 
     def bell_conv(self, bell_in):
         bell_msg = str(bell_in)
