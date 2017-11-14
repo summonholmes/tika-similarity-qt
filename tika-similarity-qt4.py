@@ -333,7 +333,6 @@ class Ui_win_Title(object):
     def bell_conv(self, bell_in):
         bell_msg = str(bell_in)
         bell_list = bell_msg.split()
-        print()
         if self.bell_conv_check(bell_list) is False:
             return False
         else:
