@@ -293,7 +293,7 @@ class Ui_win_Title(object):
         else:
             self.pop_msg_win('Error', 'Not a valid option.')
             return False
-          
+
     def set_meta(self, string_order):
         tmp_dialog = QtGui.QMessageBox()
         met_msg = QtGui.QInputDialog.getText(tmp_dialog,
@@ -329,23 +329,23 @@ class Ui_win_Title(object):
             self.pop_msg_win('Error', 'An unknown error occurred.')
             return False
 
-
     def bell_conv(self, bell_in):
         bell_msg = str(bell_in)
         bell_list = bell_msg.split()
-        if self.bell_conv_check(bell_list) is False:
-            return False
-        else:
+        if self.bell_conv_check(bell_list) is True:
             bell_int_list = []
             for x in range(len(bell_list)):
                 bell_int_list.append(int(bell_list[x]))
             return bell_int_list
+        else:
+            return False
 
     def bell_conv_check(self, bell_list):
         for x in range(len(bell_list)):
             if bell_list[x].isdigit() is False:
                 self.pop_msg_win('Error', 'You did not provide an integer')
                 return False
+        return True
 
     def csv_check(self):
         rdr = reader(open(str(self.input_lineEdit.text())))
