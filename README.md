@@ -15,7 +15,7 @@ python-cluster
 python-editdistance  
 python-jellyfish  
 python-nltk  
-python-porter2  
+python-porter  
 python-pyqt4  
 python-requests  
 python-scipy  
