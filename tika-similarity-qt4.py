@@ -267,8 +267,7 @@ class Ui_win_Title(object):
 
     # Auxiliary functions for the supplied Python files
     def set_threshold(self):
-        tmp_dialog = QtGui.QMessageBox()
-        thres_msg = QtGui.QInputDialog.getDouble(tmp_dialog, 'Set Threshold',
+        thres_msg = QtGui.QInputDialog.getDouble(self.__init__(), 'Set Threshold',
                                                  'Please specify the threshold (Default = 0.01)',
                                                  decimals = 2)
         if isinstance(thres_msg[0], float) is True and thres_msg[1] is True:
@@ -277,9 +276,8 @@ class Ui_win_Title(object):
             return False
 
     def set_cluster(self):
-        tmp_dialog = QtGui.QMessageBox()
         items = ("X-Coordinate", "Y-Coordinate", "Similarity Score")
-        clust_msg = QtGui.QInputDialog.getItem(tmp_dialog,
+        clust_msg = QtGui.QInputDialog.getItem(self.__init__(),
                                                'Set Cluster Mode',
                                                'Please specify the cluster mode',
                                                items)
@@ -296,8 +294,7 @@ class Ui_win_Title(object):
             return False
 
     def set_meta(self, string_order):
-        tmp_dialog = QtGui.QMessageBox()
-        met_msg = QtGui.QInputDialog.getText(tmp_dialog,
+        met_msg = QtGui.QInputDialog.getText(self.__init__(),
                                                  'Metalevenshtein',
                                                  'Please enter the %s string' % string_order)
         if met_msg[1] is False:
@@ -312,8 +309,7 @@ class Ui_win_Title(object):
             return False
 
     def set_bell(self, string_order):
-        tmp_dialog = QtGui.QMessageBox()
-        bell_in = QtGui.QInputDialog.getText(tmp_dialog,
+        bell_in = QtGui.QInputDialog.getText(self.__init__(),
                                                  'Bell Curve Overlap',
                                                  'Please enter the %s set '
                                                  '(Integers only using spaces)'
@@ -520,7 +516,7 @@ if __name__ == "__main__":
 
 # 5. Now the proper events are activated via clicking the respective buttons:
     ui.check_connect()
-    # ui.input_Button.clicked.connect(ui.input_folder)
+
     ui.input_Button.clicked.connect(ui.input_folder)
     ui.output_Button.clicked.connect(ui.output_folder)
     ui.comp_key_Button.clicked.connect(ui.key_comp)
