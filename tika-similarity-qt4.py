@@ -381,9 +381,9 @@ class Ui_win_Title(object):
             check_output = self.output_check()
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-                system("python2 cosine_similarity.py --inputDir %s, "
-                       "--outCSV %s/cosine_similarity.csv" %
-                       (self.input_lineEdit.text(), self.output_lineEdit.text()))
+                system("python2 cosine_similarity.py --inputDir %s "
+                       "--outCSV %s/cosine_similarity.csv"
+                       % (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/cosine_similarity.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
             else:
@@ -397,9 +397,9 @@ class Ui_win_Title(object):
             check_output = self.output_check()
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-                system("python2 edit-value-similarity.py --inputDir %s, "
-                       "--outCSV %s/edit-value-similarity.csv" %
-                       (self.input_lineEdit.text(), self.output_lineEdit.text()))
+                system("python2 edit-value-similarity.py --inputDir %s "
+                       "--outCSV %s/edit-value-similarity.csv"
+                       % (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/edit-value-similarity.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
             else:
@@ -415,8 +415,8 @@ class Ui_win_Title(object):
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
                 system("python2 psykey.py --inputDir %s "
                        "--outCSV %s/psykey.csv "
-                       "--wordlists wordlists" %
-                       (self.input_lineEdit.text(), self.output_lineEdit.text()))
+                       "--wordlists wordlists"
+                       % (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/psykey.csv' % self.output_lineEdit.text()
                 self.pop_msg_win('Complete', 'Results saved to %s' % results)
             else:
