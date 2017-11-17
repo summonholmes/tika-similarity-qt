@@ -269,7 +269,8 @@ class Ui_win_Title(object):
     def set_threshold(self):
         tmp_dialog = QtGui.QMessageBox()
         thres_msg = QtGui.QInputDialog.getDouble(tmp_dialog, 'Set Threshold',
-                                                 'Please specify the threshold')
+                                                 'Please specify the threshold (Default = 0.01)',
+                                                 decimals = 2)
         if isinstance(thres_msg[0], float) is True and thres_msg[1] is True:
             return thres_msg[0]
         else:
