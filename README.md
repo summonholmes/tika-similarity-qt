@@ -16,6 +16,7 @@ python-editdistance
 python-jellyfish  
 python-nltk  
 python-nltk-punkt  
+python-nltk-averaged_perceptron_tagger  
 python-porter  
 python-pyqt4  
 python-requests  
