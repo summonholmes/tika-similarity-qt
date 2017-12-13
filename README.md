@@ -26,6 +26,7 @@ qt4
 
 Installation (Just an example!)
 ===
+Linux/Unix  
 1. Clone [Tika-Similarity](https://github.com/chrismattmann/tika-similarity) to your home folder.
 ```
 $ git clone https://github.com/chrismattmann/tika-similarity
@@ -42,7 +43,13 @@ $ mv ~/tika-similarity-qt4/tika-similarity-qt4.py ~/tika-similarity/
 $ ~/tika-similarity/tika-similarity-qt4.py
 OR
 $ python2.7 ~/tika-similarity/tika-similarity-qt4.py
-```
+```   
+
+Windows
+1. Clone or download & extract [Tika-Similarity](https://github.com/chrismattmann/tika-similarity) to your home folder.  
+2. Clone this repository [Tika-Similarity-Qt4](https://github.com/summonholmes/tika-similarity-qt4) to your home folder. 
+3. Drag the tika-similarity-qt4-windows.py file from the 'tika-similarity-qt4' folder into the 'tika-similarity' folder.
+3. Run: C:\Python27\python.exe %USERPROFILE%/tika-similarity/tika-similarity-qt4-windows.py
 
 The only difference in the Windows version is the substitution of '~' with '%USERPROFILE%' and 'python2' with 'C:\Python27\python.exe'  
 
