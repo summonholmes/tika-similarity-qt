@@ -49,8 +49,10 @@ Windows
 1. Clone or download & extract [Tika-Similarity](https://github.com/chrismattmann/tika-similarity) to your home folder.  
 2. Clone this repository [Tika-Similarity-Qt4](https://github.com/summonholmes/tika-similarity-qt4) to your home folder. 
 3. Drag the tika-similarity-qt4-windows.py file from the 'tika-similarity-qt4' folder into the 'tika-similarity' folder.
-3. Run: C:\Python27\python.exe %USERPROFILE%/tika-similarity/tika-similarity-qt4-windows.py
-
+3. Run:
+```
+C:\Python27\python.exe %USERPROFILE%/tika-similarity/tika-similarity-qt4-windows.py
+```  
 The only difference in the Windows version is the substitution of '~' with '%USERPROFILE%' and 'python2' with 'C:\Python27\python.exe'  
 
 Windows requires manually updating the PATH environmental variable if the user chooses to use the command line often, so the path to the full python executable is included instead.  Windows users may also obtain a PyQt4 installer from the Sourceforge pages at https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/.  The Python version must be 2.7, and the system architecture must be correct for your version of Python.
