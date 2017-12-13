@@ -5,7 +5,6 @@ A simple front-end for [Tika-Similarity](https://github.com/chrismattmann/tika-s
 
 Pre-requisites
 ===
-[Tika-Python](http://github.com/chrismattmann/tika-python)  
 [Tika-Similarity](https://github.com/chrismattmann/tika-similarity)  
 
 Dependencies
@@ -44,6 +43,11 @@ $ ~/tika-similarity/tika-similarity-qt4.py
 OR
 $ python2.7 ~/tika-similarity/tika-similarity-qt4.py
 ```
+
+The only difference in the Windows version is the substitution of '~' with '%USERPROFILE%' and 'python2' with 'C:\Python27\python.exe'  
+
+Windows requires manually updating the PATH environmental variable if the user chooses to use the command line often, so the path to the full python executable is included instead.  Windows users may also obtain a PyQt4 installer from the Sourceforge pages at https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/.  The Python version must be 2.7, and the system architecture must be correct for your version of Python.
+
 License
 ===
 
