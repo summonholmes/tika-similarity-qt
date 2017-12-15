@@ -308,7 +308,7 @@ class Ui_win_Title(object):
         check_input = self.input_check()
         if check_input is True:
             self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-            system("python2 similarity.py -f %s" % self.input_lineEdit.text())
+            system("C:\Python27\python.exe similarity.py similarity.py -f %s" % self.input_lineEdit.text())
             results = 'similarity-scores.txt'
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
         else:
@@ -318,7 +318,7 @@ class Ui_win_Title(object):
         check_input = self.input_check()
         if check_input is True:
             self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-            system("python2 value-similarity.py -f %s" % self.input_lineEdit.text())
+            system("C:\Python27\python.exe similarity.py value-similarity.py -f %s" % self.input_lineEdit.text())
             results = 'value-similarity-scores.txt'
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
         else:
@@ -330,7 +330,7 @@ class Ui_win_Title(object):
             check_output = self.output_check()
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-                system("python2 cosine_similarity.py --inputDir %s "
+                system("C:\Python27\python.exe cosine_similarity.py --inputDir %s "
                        "--outCSV %s/cosine_similarity.csv"
                        % (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/cosine_similarity.csv' % self.output_lineEdit.text()
@@ -346,7 +346,7 @@ class Ui_win_Title(object):
             check_output = self.output_check()
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-                system("python2 edit-value-similarity.py --inputDir %s "
+                system("C:\Python27\python.exe edit-value-similarity.py --inputDir %s "
                        "--outCSV %s/edit-value-similarity.csv"
                        % (self.input_lineEdit.text(), self.output_lineEdit.text()))
                 results = '%s/edit-value-similarity.csv' % self.output_lineEdit.text()
@@ -362,7 +362,7 @@ class Ui_win_Title(object):
             check_output = self.output_check()
             if check_output is True:
                 self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-                system("python2 psykey.py --inputDir %s "
+                system("C:\Python27\python.exe psykey.py --inputDir %s "
                        "--outCSV %s/psykey.csv "
                        "--wordlists wordlists"
                        % (self.input_lineEdit.text(), self.output_lineEdit.text()))
@@ -392,8 +392,8 @@ class Ui_win_Title(object):
             return None
         else:
             self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-            system("python2 cluster-scores.py -t %s" % thres_val)
-            system("python2 circle-packing.py")
+            system("C:\Python27\python.exe cluster-scores.py -t %s" % thres_val)
+            system("C:\Python27\python.exe circle-packing.py")
             results = 'cluster-d3.html dynamic-cluster.html, and circlepacking.html'
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
 
@@ -420,9 +420,9 @@ class Ui_win_Title(object):
             return None
         else:
             self.pop_msg_win('In Progress', 'Please wait for the operation to complete')
-            system("python2 edit-cosine-cluster.py --inputCSV %s --cluster %d" %
+            system("C:\Python27\python.exe edit-cosine-cluster.py --inputCSV %s --cluster %d" %
                     (self.input_lineEdit.text(), cluster_mode))
-            system("python2 edit-cosine-circle-packing.py --inputCSV %s --cluster %d" %
+            system("C:\Python27\python.exe edit-cosine-circle-packing.py --inputCSV %s --cluster %d" %
                 (self.input_lineEdit.text(), cluster_mode))
             results = 'cluster-d3.html dynamic-cluster.html, and circlepacking.html'
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
