@@ -38,11 +38,11 @@ $ git clone https://github.com/summonholmes/tika-similarity-qt
 3. Run:
 
 ```
-$ mv ~/tika-similarity-qt4/tika-similarity-qt4.py ~/tika-similarity/
+$ mv ~/tika-similarity-qt4/tika-similarity-qt4-unix-linux.py ~/tika-similarity/
 
-$ ~/tika-similarity/tika-similarity-qt4.py
+$ chmod +x ~/tika-similarity/tika-similarity-qt4-unix-linux.py && ~/tika-similarity/tika-similarity-qt4-unix-linux.py
 OR
-$ python2.7 ~/tika-similarity/tika-similarity-qt4.py
+$ python2.7 ~/tika-similarity/tika-similarity-qt4-unix-linux.py
 ```   
 
 Windows
