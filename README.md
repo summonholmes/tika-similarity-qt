@@ -21,8 +21,8 @@ python-requests
 python-scipy  
 python-stemming  
 python-tika  
-qt4/qt5  
-pyqt4/pyqt5  
+qt4   /   qt5  
+pyqt4   /   pyqt5  
 
 Installation (Just an example!)
 ===
@@ -55,9 +55,11 @@ C:\Python27\python.exe %USERPROFILE%/tika-similarity/tika-similarity-qt4-windows
 ```  
 The only difference in the Windows version is the substitution of '~' with '%USERPROFILE%' and 'python2' with 'C:\Python27\python.exe'  
 
-Windows requires manually updating the PATH environmental variable if the user chooses to use the command line often, so the path to the full python executable is included instead.  Windows users may also obtain a PyQt4 installer from the Sourceforge pages at https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/.  For PyQt5 on Windows, you must also use the installer since pip only supports PyQt5 for Python version 3 and higher: https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/.  Remember to choose Python version 2.7 and the correct version of the installed Python system architecture (could be x32 on a x64 system).
+Windows requires manually updating the PATH environmental variable if the user chooses to use the command line often, so the path to the full python executable is included instead.  
 
-* Note: The PyQt5 versions are still undergoing testing.  Use at your own risk.
+Windows users may also obtain a PyQt4 installer from the Sourceforge pages at https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/.  For PyQt5 on Windows, you must also use the installer since pip only supports PyQt5 for Python version 3 and higher: https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/.  
+
+Remember to choose Python version 2.7 and the correct version of the installed Python system architecture (could be x32 on a x64 system).  
 
 License
 ===
