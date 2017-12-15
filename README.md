@@ -65,3 +65,7 @@ License
 ===
 
 This project is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+Questions, Comments, etc?
+===
+Email me [Shane Kimble](mailto:shanekimble12@hotmail.com).
