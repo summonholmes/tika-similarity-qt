@@ -21,8 +21,8 @@ python-requests
 python-scipy  
 python-stemming  
 python-tika  
-qt4/qt5 
-pyqt4/pyqt5
+qt4/qt5  
+pyqt4/pyqt5  
 
 Installation (Just an example!)
 ===
