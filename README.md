@@ -59,7 +59,7 @@ Windows requires manually updating the PATH environmental variable if the user c
 
 Windows users may also obtain a PyQt4 installer from the Sourceforge pages at https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/.  Remember to choose Python version 2.7 and the correct version of the installed Python system architecture (could be x32 on a x64 system).  
 
-For PyQt5 on Windows, you must build PyQt5 against Python 2.7 because there are only installer for Python 3.x. https://sourceforge.net/projects/pyqt/files/PyQt5/. 
+For PyQt5 on Windows, you must build PyQt5 against Python 2.7 because there are only installers for Python 3.x. https://sourceforge.net/projects/pyqt/files/PyQt5/. 
 
 
 License
