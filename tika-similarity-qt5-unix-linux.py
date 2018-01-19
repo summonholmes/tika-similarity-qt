@@ -428,11 +428,11 @@ class Ui_win_Title(object):
             self.pop_msg_win('Complete', 'Results saved to %s' % results)
         
     def metalev(self):
-        string_1 = str(self.set_meta('first'))
+        string_1 = self.set_meta('first')
         if string_1 is False:
             return None
         else:
-            string_2 = str(self.set_meta('second'))
+            string_2 = self.set_meta('second')
             if string_2 is False:
                 return None
             else:
